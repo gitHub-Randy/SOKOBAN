@@ -8,7 +8,7 @@ namespace ConsoleApp4
 {
     public  class Controller 
     {
-        String _string = "HELLO";
+        String _string = "he";
         private Doolhof _dh;
         private Parser _parser;
         private OutputView _outputView;
