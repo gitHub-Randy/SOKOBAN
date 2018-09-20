@@ -7,5 +7,6 @@ namespace ConsoleApp4
 {
     public class Muur : StaticObject
     {
+
     }
 }

@@ -16,10 +16,10 @@ namespace ConsoleApp4
         public Controller()
         {
             _dh = new Doolhof();
-            //_parser = new Parser(this);
+            _parser = new Parser(this);
             _outputView = new OutputView();
             _inputView = new InputView();
-            _inputView.ShowMenu();
+            //_inputView.ShowMenu();
            
            
         }

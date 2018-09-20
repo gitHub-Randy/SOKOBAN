@@ -5,30 +5,63 @@ using System.Text;
 
 namespace ConsoleApp4
 {
-    public class Parser
+    public class Parser : IParser
     {
         Controller _controller;
+        List<char> _upper;
+        List<char> _bottom;
         public Parser(Controller control)
         {
             _controller = control;
             ParseLevel();
         }
-        public void ParseLevel()
+        public override void ParseLevel()
         {
-            String line;
-            int counter = 0;
-            // Read the file and display it line by line.  
-            System.IO.StreamReader file = new System.IO.StreamReader("doolhof4.txt");
-            while ((line = file.ReadLine()) != null)
+            _upper = new List<char>();
+            _bottom = new List<char>();
+
+            String[] lines = System.IO.File.ReadAllLines("doolhof4.txt");
+
+            for(int i = 0; i< lines.Length-1; i+=2)
             {
-                System.Console.WriteLine(line);
-                counter++;
+                _upper = lines[i].ToList();
+                _bottom = lines[i + 1].ToList();
+                Factory(_upper, _bottom);
+              
             }
 
-            file.Close();
-            System.Console.WriteLine("There were {0} lines.", counter);
-            // Suspend the screen.  
+           
             System.Console.ReadLine();
         }
+
+        public void Factory(List<char> lOne, List<char>lTwo)
+        {
+            for(int i =0; i< lOne.Count; i++)
+            {
+                char type = lOne[i];
+                switch (type)
+                {
+                    case '#':
+                        //MakeWall();
+                        break;
+                    case '.':
+                        //MakeFloor();
+                        break;
+                    case '@':
+                        //MakeTruck();
+                        break;
+                    case 'O':
+                        //MakeBox();
+                        break;
+                    case 'x':
+                        //MakeDestination();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+
     }
 }

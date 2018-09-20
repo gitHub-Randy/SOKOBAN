@@ -7,33 +7,33 @@ namespace ConsoleApp4
 {
     public abstract class StaticObject
     {
-        public int NorthField
+        public StaticObject NorthField
         {
-            get => default(int);
+            get => default(StaticObject);
             set
             {
             }
         }
 
-        public int SouthField
+        public StaticObject SouthField
         {
-            get => default(int);
+            get => default(StaticObject);
             set
             {
             }
         }
 
-        public int EastField
+        public StaticObject EastField
         {
-            get => default(int);
+            get => default(StaticObject);
             set
             {
             }
         }
 
-        public int WestField
+        public StaticObject WestField
         {
-            get => default(int);
+            get => default(StaticObject);
             set
             {
             }
