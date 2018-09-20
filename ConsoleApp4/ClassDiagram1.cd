@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ConsoleApp4.MagazijnMedewerker">
+    <Position X="4" Y="8.75" Width="1.5" />
+    <InheritanceLine Type="ConsoleApp4.MovableObject" FixedFromPoint="true">
+      <Path>
+        <Point X="3" Y="6.188" />
+        <Point X="3.375" Y="6.188" />
+        <Point X="3.375" Y="9.249" />
+        <Point X="4" Y="9.249" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MagazijnMedewerker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp4.Muur">
+    <Position X="10" Y="8.25" Width="1.5" />
+    <InheritanceLine Type="ConsoleApp4.StaticObject" FixedFromPoint="true">
+      <Path>
+        <Point X="13.25" Y="6.562" />
+        <Point X="12.875" Y="6.562" />
+        <Point X="12.875" Y="8.749" />
+        <Point X="11.5" Y="8.749" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Muur.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp4.Doolhof">
+    <Position X="8" Y="4.75" Width="1.5" />
+    <AssociationLine Name="mw" Type="ConsoleApp4.MagazijnMedewerker" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8" Y="5.624" />
+        <Point X="7.625" Y="5.624" />
+        <Point X="7.625" Y="9.5" />
+        <Point X="5.5" Y="9.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="m" Type="ConsoleApp4.Muur" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="9.5" Y="5.812" />
+        <Point X="9.75" Y="5.812" />
+        <Point X="9.75" Y="8.749" />
+        <Point X="10" Y="8.749" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="d" Type="ConsoleApp4.Destination" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.688" Y="5.853" />
+        <Point X="8.688" Y="10.997" />
+        <Point X="14.875" Y="10.997" />
+        <Point X="14.875" Y="10.5" />
+        <Point X="15.25" Y="10.5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.068" Y="0.06" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAEghAAAAIAAAA=</HashCode>
+      <FileName>Doolhof.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mw" />
+      <Field Name="m" />
+      <Field Name="v" />
+      <Field Name="k" />
+      <Field Name="d" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ConsoleApp4.Kist">
+    <Position X="1.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Kist.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp4.Vloer">
+    <Position X="12" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Vloer.cs</FileName>
+      <NewMemberFileName>vloer.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp4.Parser">
+    <Position X="12.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAEA=</HashCode>
+      <FileName>Parser.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_controller" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ConsoleApp4.MainClass">
+    <Position X="1.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>MainClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp4.Controller">
+    <Position X="7.25" Y="2.75" Width="1.5" />
+    <AssociationLine Name="_inputView" Type="ConsoleApp4.InputView" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.75" Y="2.75" />
+        <Point X="9.812" Y="2.75" />
+        <Point X="9.812" Y="1.987" />
+        <Point X="12.969" Y="1.987" />
+        <Point X="12.969" Y="1.312" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAABAAAAAEAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Controller.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_dh" />
+      <Field Name="_parser" />
+      <Field Name="_outputView" />
+      <Field Name="_inputView" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ConsoleApp4.MovableObject">
+    <Position X="1.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAgAAAAAAAAAgAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>MovableObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp4.OutputView">
+    <Position X="4.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OutputView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp4.Destination">
+    <Position X="15.25" Y="9.75" Width="1.5" />
+    <InheritanceLine Type="ConsoleApp4.StaticObject" FixedFromPoint="true">
+      <Path>
+        <Point X="14.75" Y="6.097" />
+        <Point X="16" Y="6.097" />
+        <Point X="16" Y="9.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Destination.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp4.StaticObject">
+    <Position X="13.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAABAAAAAAAAAIAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>StaticObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleApp4.InputView" Collapsed="true">
+    <Position X="12.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>InputView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
