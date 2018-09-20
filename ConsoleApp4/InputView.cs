@@ -25,7 +25,6 @@ namespace ConsoleApp4
             Console.WriteLine("|___________________________________________________|");
             Console.WriteLine(" ");
             Console.WriteLine("> kies een doolhof ( 1 - 4), s = stop");
-            Console.ReadKey();
         }
     }
 }
