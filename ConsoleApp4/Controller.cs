@@ -21,8 +21,9 @@ namespace ConsoleApp4
             _outputView = new OutputView();
             _inputView = new InputView();
             _inputView.ShowMenu();
-            // keyInputEvent(); //
+            keyInputEvent();
             KeyInputEventGame();
+
 
            
            
