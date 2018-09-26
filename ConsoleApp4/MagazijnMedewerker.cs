@@ -7,5 +7,7 @@ namespace ConsoleApp4
 {
     public class MagazijnMedewerker : MovableObject
     {
+        
+
     }
 }

@@ -7,35 +7,55 @@ namespace ConsoleApp4
 {
     public abstract class StaticObject
     {
+       private  StaticObject _northField;
+        private StaticObject _southField;
+        private StaticObject _eastField;
+        private StaticObject _westField;
+        private char _symbol;
+
+
         public StaticObject NorthField
         {
-            get => default(StaticObject);
+            get { return this._northField; }
             set
             {
+                this._northField = value;
             }
         }
 
         public StaticObject SouthField
         {
-            get => default(StaticObject);
+            get { return this._southField; }
             set
             {
+                this._southField = value;
             }
         }
 
         public StaticObject EastField
         {
-            get => default(StaticObject);
+            get { return this._eastField; }
             set
             {
+                this._eastField = value;
             }
         }
 
         public StaticObject WestField
         {
-            get => default(StaticObject);
+            get { return  this._westField; }
             set
             {
+                this._westField = value;
+            }
+        }
+
+        public char Symbol
+        {
+            get { return this._symbol; }
+            set
+            {
+                this._symbol = value;
             }
         }
     }

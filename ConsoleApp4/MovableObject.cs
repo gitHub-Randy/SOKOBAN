@@ -28,10 +28,5 @@ namespace ConsoleApp4
         {
             throw new System.NotImplementedException();
         }
-
-        public void isMoveable()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

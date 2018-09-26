@@ -47,6 +47,7 @@
     <Compile Include="Controller.cs" />
     <Compile Include="Destination.cs" />
     <Compile Include="Doolhof.cs" />
+    <Compile Include="EmptySpace.cs" />
     <Compile Include="InputView.cs" />
     <Compile Include="IParser.cs" />
     <Compile Include="Kist.cs" />

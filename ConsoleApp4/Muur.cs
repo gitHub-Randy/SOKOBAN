@@ -7,6 +7,10 @@ namespace ConsoleApp4
 {
     public class Muur : StaticObject
     {
+        public Muur()
+        {
+            this.Symbol = '#';
+        }
 
     }
 }
