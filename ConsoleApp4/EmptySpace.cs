@@ -7,9 +7,6 @@ namespace ConsoleApp4
 {
     public class EmptySpace : StaticObject
     {
-        public EmptySpace()
-        {
-            this.Symbol = ' ';
-        }
+      
     }
 }

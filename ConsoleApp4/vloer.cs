@@ -13,13 +13,13 @@ namespace ConsoleApp4
         {
            if( c == '@')
             {
-                this.Symbol = c;
+            
                 this.hasTruck = true;
                 
             }
            else if(c == 'o')
             {
-                this.Symbol = c;
+                
                 hasKist = true;
 
             }

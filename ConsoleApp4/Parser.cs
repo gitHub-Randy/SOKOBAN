@@ -24,7 +24,7 @@ namespace ConsoleApp4
             _upper = new List<char>();
             _bottom = new List<char>();
 
-            String[] lines = System.IO.File.ReadAllLines("doolhof4.txt");
+            String[] lines = System.IO.File.ReadAllLines("doolhof1.txt");
             _upper = lines[0].ToList();
 
             for (int i = 1; i < lines.Length; i++)
@@ -32,24 +32,30 @@ namespace ConsoleApp4
                 _bottom = lines[i].ToList();
                 Factory(_upper, _bottom);
                 _upper = _bottom;
-
+              
             }
-            _first = tempo.First();
-
+            _first = tempo[0];
+            int counter = 0;
             StaticObject current = _first;
+            StaticObject prev = null;
             while (current != null)
             {
+                
+              
                 Console.Write(current.Symbol);
                 if(current.EastField == null)
                 {
                     Console.WriteLine();
+                    prev = current;
                     current = _first.SouthField;
                     _first = current;
                 }
                 if(current.EastField != null)
                 {
+                    prev = current;
                     current = current.EastField;
                 }
+                counter++;
             }
                  
             //StaticObject[] tempoArr = tempo.ToArray();
@@ -79,9 +85,9 @@ namespace ConsoleApp4
 
           
             LinkObjects(MakeObjects(lOne), MakeObjects(lTwo));
+            LinkObjects(MakeObjects(lOne), MakeObjects(lTwo));
 
-           
-            
+
 
 
         }
@@ -91,19 +97,25 @@ namespace ConsoleApp4
             
             
             
-            for (int i = 0; i < lOne.Length - 1; i++)
+            for (int i = 0; i < lOne.Length-1; i++)
             {
                 
                 lOne[i].EastField = lOne[i + 1];
-                lOne[i].WestField = lOne[i + 1];
+               
+               
+                lTwo[i].EastField = lTwo[i + 1];
                
 
             }
-           
-            for (int i = 0; i < lOne.Length-1; i++)
+            for(int i = lOne.Length-1;i > 0; i--)
             {
-                lOne[i].SouthField = lTwo[i+1];
-                lTwo[i].NorthField = lOne[i+1];
+                lOne[i].WestField = lOne[i - 1];
+                lTwo[i].WestField = lTwo[i - 1];
+            }
+            for (int i = 0; i < lOne.Length; i++)
+            {
+                lOne[i].SouthField = lTwo[i];
+                lTwo[i].NorthField = lOne[i];
 
             }
 
@@ -111,7 +123,7 @@ namespace ConsoleApp4
 
 
 
-            for (int i = 0; i < lOne.Length; i++)
+            for (int i = 0; i < lOne.Length-1; i++)
             {
                 tempo.Add(lOne[i]);
             }
@@ -162,7 +174,7 @@ namespace ConsoleApp4
                     case ' ':
                         //MakeEmptySpace();
                         objects[i] = new EmptySpace();
-                        objects[i].Symbol = ' ';
+                        objects[i].Symbol = '█';
                         break;
                     default:
                         break;
