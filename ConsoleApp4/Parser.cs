@@ -4,12 +4,12 @@ namespace ConsoleApp4
 {
     public class Parser : IParser
     {
-        Controller _controller;
-        StaticObject[,] objects;
-        int numberOfRows;
-        int lengthOfRows;
-        String[] lines;
-        Char[,] char2d;
+       public Controller _controller;
+        public StaticObject[,] objects;
+        public int numberOfRows;
+        public int lengthOfRows;
+        public String[] lines;
+        public Char[,] char2d;
         public Parser(Controller control)
         {
             _controller = control;

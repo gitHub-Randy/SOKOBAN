@@ -22,7 +22,7 @@ namespace ConsoleApp4
             _inputView = new InputView();
             //_inputView.ShowMenu();
             //keyInputEvent();
-            //KeyInputEventGame();
+            KeyInputEventGame();
 
 
            
