@@ -1,189 +1,141 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace ConsoleApp4
 {
     public class Parser : IParser
     {
         Controller _controller;
-        List<char> _upper;
-        List<char> _bottom;
-        List<StaticObject> tempo = new List<StaticObject>();
-        StaticObject _first;
-        int test = 0;
+        StaticObject[,] objects;
+        int numberOfRows;
+        int lengthOfRows;
+        String[] lines;
+        Char[,] char2d;
         public Parser(Controller control)
-
         {
             _controller = control;
             ParseLevel();
         }
         public override void ParseLevel()
         {
+            lines = System.IO.File.ReadAllLines("doolhof4.txt");
+            numberOfRows = lines.Length;
+            lengthOfRows = lines[0].Length;
+            char2d = new Char[numberOfRows, lengthOfRows];
+            objects = new StaticObject[numberOfRows, lengthOfRows];
 
-            _upper = new List<char>();
-            _bottom = new List<char>();
+            ReadTextFile();
+            MakeObjects();
+            LinkObjects();
+            PrintObjects();
 
-            String[] lines = System.IO.File.ReadAllLines("doolhof1.txt");
-            _upper = lines[0].ToList();
-
-            for (int i = 1; i < lines.Length; i++)
-            {
-                _bottom = lines[i].ToList();
-                Factory(_upper, _bottom);
-                _upper = _bottom;
-              
-            }
-            _first = tempo[0];
-            int counter = 0;
-            StaticObject current = _first;
-            StaticObject prev = null;
-            while (current != null)
-            {
-                
-              
-                Console.Write(current.Symbol);
-                if(current.EastField == null)
-                {
-                    Console.WriteLine();
-                    prev = current;
-                    current = _first.SouthField;
-                    _first = current;
-                }
-                if(current.EastField != null)
-                {
-                    prev = current;
-                    current = current.EastField;
-                }
-                counter++;
-            }
-                 
-            //StaticObject[] tempoArr = tempo.ToArray();
-            //for (int i = 0; i < tempoArr.Length; i++)
-            //{
-            //    if (tempoArr[i].EastField != null)
-            //    {
-                    
-            //            Console.Write(tempoArr[i].Symbol);
-                    
-
-            //    }
-            //    if (tempoArr[i].EastField == null)
-            //    {
-            //        Console.WriteLine();
-            //    }
-            //}
-
-
-
-            System.Console.ReadLine();
+            
         }
 
-        public void Factory(List<char> lOne, List<char> lTwo)
+        public void ReadTextFile()
         {
-
-
-          
-            LinkObjects(MakeObjects(lOne), MakeObjects(lTwo));
-            LinkObjects(MakeObjects(lOne), MakeObjects(lTwo));
-
-
-
-
-        }
-
-        public void LinkObjects(StaticObject[] lOne, StaticObject[] lTwo)
-        {
-            
-            
-            
-            for (int i = 0; i < lOne.Length-1; i++)
+            for (int i = 0; i < numberOfRows; i++)
             {
-                
-                lOne[i].EastField = lOne[i + 1];
-               
-               
-                lTwo[i].EastField = lTwo[i + 1];
-               
+                var s = lines[i].ToCharArray();
 
-            }
-            for(int i = lOne.Length-1;i > 0; i--)
-            {
-                lOne[i].WestField = lOne[i - 1];
-                lTwo[i].WestField = lTwo[i - 1];
-            }
-            for (int i = 0; i < lOne.Length; i++)
-            {
-                lOne[i].SouthField = lTwo[i];
-                lTwo[i].NorthField = lOne[i];
-
-            }
-
-
-
-
-
-            for (int i = 0; i < lOne.Length-1; i++)
-            {
-                tempo.Add(lOne[i]);
-            }
-
-            
-            //for (int i = 0; i < lTwo.Length; i++)
-            //{
-            //    tempo.Add(lTwo[i]);
-            //}
-
-        }
-
-        public StaticObject[] MakeObjects(List<char> list)
-        {
-            StaticObject[] objects = new StaticObject[list.Count()];
-            
-            for (int i = 0; i < list.Count; i++)
-            {
-
-                char type = list[i];
-                switch (type)
+                for (int j = lengthOfRows - 1; j >= 0; j--)
                 {
-                    case '#':
-                        //MakeWall();
-                        objects[i] = new Muur();
-                        objects[i].Symbol = '#';
-                        break;
-                    case '.':
-                        //MakeFloor();
-                        objects[i] = new Vloer('.', false, false);
-                        objects[i].Symbol = '.';
-                        break;
-                    case '@':
-                        //MakeTruck();
-                        objects[i] = new Vloer('@', true, false);
-                        objects[i].Symbol = '@';
-                        break;
-                    case 'o':
-                        //MakeBox();
-                        objects[i] = new Vloer('o', false, true);
-                        objects[i].Symbol = 'o';
-                        break;
-                    case 'x':
-                        //MakeDestination();
-                        objects[i] = new Destination();
-                        objects[i].Symbol = 'x';
-                        break;
-                    case ' ':
-                        //MakeEmptySpace();
-                        objects[i] = new EmptySpace();
-                        objects[i].Symbol = '█';
-                        break;
-                    default:
-                        break;
+                    char2d[i, j] = s[j];
                 }
             }
-
-            return objects;
         }
 
+        public void MakeObjects()
+        {
+
+            for (int i = 0; i < numberOfRows; i++)
+            {
+                for (int j = lengthOfRows - 1; j >= 0; j--)
+                {
+                    char character = char2d[i, j];
+
+                    switch (character)
+                    {
+                        case '#':
+                            //MakeWall();
+                            objects[i, j] = new Muur();
+                            objects[i, j].Symbol = '#';
+                            break;
+                        case '.':
+                            //MakeFloor();
+                            objects[i, j] = new Vloer('.', false, false);
+                            objects[i, j].Symbol = '.';
+                            break;
+                        case '@':
+                            //MakeTruck();
+                            objects[i, j] = new Vloer('@', true, false);
+                            objects[i, j].Symbol = '@';
+                            break;
+                        case 'o':
+                            //MakeBox();
+                            objects[i, j] = new Vloer('o', false, true);
+                            objects[i, j].Symbol = 'o';
+                            break;
+                        case 'x':
+                            //MakeDestination();
+                            objects[i, j] = new Destination();
+                            objects[i, j].Symbol = 'x';
+                            break;
+                        case ' ':
+                            //MakeEmptySpace();
+                            objects[i, j] = new EmptySpace();
+                            objects[i, j].Symbol = '█';
+                            break;
+                        default:
+                            break;
+
+                    }
+                }
+
+            }
+
+        }
+
+        public void LinkObjects()
+        {
+            for (int i = 0; i < numberOfRows - 1; i++)
+            {
+                for (int j = lengthOfRows - 1; j > 0; j--)
+                {
+
+                    if (i > 0)
+                    {
+                        objects[i, j].NorthField = objects[i - 1, j];
+                    }
+                    if (i < numberOfRows)
+                    {
+                        objects[i, j].SouthField = objects[i + 1, j];
+                    }
+                    if (j > 0)
+                    {
+                        objects[i, j].WestField = objects[i, j - 1];
+                    }
+                    if (j < lengthOfRows - 1)
+                    {
+                        objects[i, j].EastField = objects[i, j + 1];
+                    }
+                }
+            }
+        }
+
+        public void PrintObjects()
+        {
+            for (int i = 0; i < numberOfRows; i++)
+            {
+                for (int j = 0; j < lengthOfRows; j++)
+                {
+                    Console.Write(objects[i, j].Symbol);
+                }
+                Console.WriteLine();
+            }
+        }
 
     }
+
+
 }
+
