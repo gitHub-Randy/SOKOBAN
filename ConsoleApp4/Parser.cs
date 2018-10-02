@@ -17,7 +17,7 @@ namespace ConsoleApp4
         }
         public override void ParseLevel()
         {
-            lines = System.IO.File.ReadAllLines("doolhof4.txt");
+            lines = System.IO.File.ReadAllLines("doolhof1.txt");
             numberOfRows = lines.Length;
             lengthOfRows = lines[0].Length;
             char2d = new Char[numberOfRows, lengthOfRows];

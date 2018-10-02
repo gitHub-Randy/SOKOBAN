@@ -22,11 +22,14 @@ namespace ConsoleApp4
             _inputView = new InputView();
             //_inputView.ShowMenu();
             //keyInputEvent();
-            KeyInputEventGame();
+
+            while (true)
+            {
+                KeyInputEventGame();
+            }
 
 
-           
-           
+
         }
 
        private void keyInputEvent()
@@ -48,31 +51,49 @@ namespace ConsoleApp4
        private void KeyInputEventGame()
         {
             ConsoleKey choice;
-            do
-            {
-                choice = Console.ReadKey(true).Key;
-                switch (choice)
-                {
-                    case ConsoleKey.LeftArrow:
-                        Console.WriteLine("links");
-                        // moveLeft //
-                        break;
-                    case ConsoleKey.RightArrow:
-                        Console.WriteLine("rechts");
-                        // moveright //
-                        break;
-                    case ConsoleKey.UpArrow:
-                        Console.WriteLine("omhoog");
-                        // moveup //
-                        break;
-                    case ConsoleKey.DownArrow:
-                        Console.WriteLine("omlaag");
-                        // movedown //
-                        break;
 
+            
+            for (int i = 0; i < _parser.numberOfRows; i++)
+            {
+                for (int j = 0; j < _parser.lengthOfRows; j++)
+                {
+                    if (_parser.objects[i,j].Symbol == '@')
+                    {
+                        while (true)
+                        {
+                            choice = Console.ReadKey(true).Key;
+                            switch (choice)
+                            {
+                                case ConsoleKey.LeftArrow:
+                                    _parser.objects[i, j - 1].Symbol = '@';
+                                    _parser.objects[i, j].Symbol = '.';
+                                    Console.Clear();
+                                    _parser.PrintObjects();
+                                    Console.WriteLine("links");
+                                    // moveLeft //
+                                    return;
+                                case ConsoleKey.RightArrow:
+                                    Console.WriteLine("rechts");
+                                    // moveright //
+                                    break;
+                                case ConsoleKey.UpArrow:
+                                    Console.WriteLine("omhoog");
+                                    // moveup //
+                                    break;
+                                case ConsoleKey.DownArrow:
+                                    Console.WriteLine("omlaag");
+                                    // movedown //
+                                    break;
+
+                            }
+                            
+                        }
+                        
+                        
+                    }
                 }
             }
-            while (choice != ConsoleKey.S);
+           
         }
      
     }
