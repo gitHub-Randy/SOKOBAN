@@ -1,29 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace ConsoleApp4
 {
     public class Vloer : StaticObject
     {
-    
-        
+
+        private MovableObject _object;
         public Vloer(char c, bool hasTruck, bool hasKist)
         {
-           if( c == '@')
+            if (c == '@')
             {
-            
+
                 this.hasTruck = true;
-                
+
             }
-           else if(c == 'o')
+            else if (c == 'o')
             {
-                
+
                 hasKist = true;
 
             }
         }
+
+
+
 
         public bool hasTruck
         {
@@ -31,15 +31,22 @@ namespace ConsoleApp4
             set
             {
             }
-        
 
-    }
+
+        }
         public bool hasKist
         {
             get => default(bool);
             set
             {
             }
+        }
+
+        public override MovableObject HasObject
+        {
+            get { return this._object; }
+            set { this._object = value; }
+
         }
     }
 }

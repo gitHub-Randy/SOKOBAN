@@ -65,6 +65,7 @@ namespace ConsoleApp4
                             switch (choice)
                             {
                                 case ConsoleKey.LeftArrow:
+
                                     _parser.objects[i, j - 1].Symbol = '@';
                                     _parser.objects[i, j].Symbol = '.';
                                     Console.Clear();

@@ -12,7 +12,7 @@ namespace ConsoleApp4
         private StaticObject _eastField;
         private StaticObject _westField;
         private char _symbol;
-
+        private MovableObject _object;
 
         public StaticObject NorthField
         {
@@ -57,6 +57,12 @@ namespace ConsoleApp4
             {
                 this._symbol = value;
             }
+        }
+
+        public abstract MovableObject HasObject
+        {
+            get;
+            set;
         }
     }
 }
