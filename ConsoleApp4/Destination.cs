@@ -1,16 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace ConsoleApp4
+﻿namespace ConsoleApp4
 {
     public class Destination : StaticObject
     {
-       
-        public void hasKist()
+
+        private MovableObject _object;
+
+      
+
+        public override MovableObject HasObject
         {
-            throw new System.NotImplementedException();
+            get { return this._object; }
+            set
+            {
+                this._object = value;
+                if (_object.Symbol == '@')
+                {
+                    this.Symbol = '@';
+                }
+                else if (_object.Symbol == 'o')
+                {
+                    this.Symbol = '0';
+                }
+
+            }
         }
     }
 }
