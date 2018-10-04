@@ -7,6 +7,6 @@ namespace ConsoleApp4
 {
     public class Muur : StaticObject
     {
-        public override MovableObject HasObject { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public override MovableObject Object { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }

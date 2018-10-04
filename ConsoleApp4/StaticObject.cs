@@ -59,7 +59,7 @@ namespace ConsoleApp4
             }
         }
 
-        public abstract MovableObject HasObject
+        public abstract MovableObject Object
         {
             get;
             set;

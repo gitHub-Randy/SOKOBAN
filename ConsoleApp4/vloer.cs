@@ -42,7 +42,7 @@ namespace ConsoleApp4
             }
         }
 
-        public override MovableObject HasObject
+        public override MovableObject Object
         {
             get { return this._object; }
             set { this._object = value; }

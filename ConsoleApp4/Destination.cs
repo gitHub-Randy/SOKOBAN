@@ -7,7 +7,7 @@
 
       
 
-        public override MovableObject HasObject
+        public override MovableObject Object
         {
             get { return this._object; }
             set
