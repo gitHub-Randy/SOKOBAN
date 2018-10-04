@@ -73,17 +73,29 @@ namespace ConsoleApp4
                                     // moveLeft //
                                     return;
                                 case ConsoleKey.RightArrow:
+                                    _parser.objects[i, j + 1].Symbol = '@';
+                                    _parser.objects[i, j].Symbol = '.';
+                                    Console.Clear();
+                                    _parser.PrintObjects();
                                     Console.WriteLine("rechts");
                                     // moveright //
-                                    break;
+                                    return;
                                 case ConsoleKey.UpArrow:
+                                    _parser.objects[i - 1, j].Symbol = '@';
+                                    _parser.objects[i, j].Symbol = '.';
+                                    Console.Clear();
+                                    _parser.PrintObjects();
                                     Console.WriteLine("omhoog");
                                     // moveup //
-                                    break;
+                                    return;
                                 case ConsoleKey.DownArrow:
+                                    _parser.objects[i + 1, j].Symbol = '@';
+                                    _parser.objects[i, j].Symbol = '.';
+                                    Console.Clear();
+                                    _parser.PrintObjects();
                                     Console.WriteLine("omlaag");
                                     // movedown //
-                                    break;
+                                    return;
 
                             }
                             
