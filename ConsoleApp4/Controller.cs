@@ -85,11 +85,16 @@ namespace ConsoleApp4
                                         _parser.objects[i, j].WestField.setDefaultSymbol();
                                         _parser.objects[i, j].Object = null;
                                         _parser.objects[i, j].setDefaultSymbol();
-                                        
+                                        Console.Clear();
+                                        _parser.PrintObjects();
+                                        Console.WriteLine("links");
+                                        // moveLeft //
+                                        return;
+
                                     }
                                     return;
                                 case ConsoleKey.RightArrow:
-                                    if (_parser.objects[i, j].EastField.Symbol != '#')
+                                    if (_parser.objects[i, j].EastField.Symbol != '#' && _parser.objects[i, j].EastField.Symbol != 'o')
                                     {
                                         _parser.objects[i, j].EastField.Object = _parser.objects[i, j].Object;
                                         _parser.objects[i, j].EastField.setDefaultSymbol();
@@ -100,10 +105,24 @@ namespace ConsoleApp4
                                         Console.WriteLine("rechts");
                                         // moveright //
                                         return;
-                                    } 
+                                    }
+                                    else if (_parser.objects[i, j].EastField.Symbol == 'o')
+                                    {
+                                        _parser.objects[i, j].EastField.EastField.Object = _parser.objects[i, j].EastField.Object;
+                                        _parser.objects[i, j].EastField.EastField.setDefaultSymbol();
+                                        _parser.objects[i, j].EastField.Object = _parser.objects[i, j].Object;
+                                        _parser.objects[i, j].EastField.setDefaultSymbol();
+                                        _parser.objects[i, j].Object = null;
+                                        _parser.objects[i, j].setDefaultSymbol();
+                                        Console.Clear();
+                                        _parser.PrintObjects();
+                                        Console.WriteLine("links");
+                                        // moveLeft //
+                                        return;
+                                    }
                                     return;
                                 case ConsoleKey.UpArrow:
-                                    if (_parser.objects[i, j].NorthField.Symbol != '#')
+                                    if (_parser.objects[i, j].NorthField.Symbol != '#' && _parser.objects[i, j].NorthField.Symbol != 'o')
                                     {
                                         _parser.objects[i, j].NorthField.Object = _parser.objects[i, j].Object;
                                         _parser.objects[i, j].NorthField.setDefaultSymbol();
@@ -115,9 +134,24 @@ namespace ConsoleApp4
                                         // moveup //
                                         return;
                                     }
+                                    else if (_parser.objects[i, j].NorthField.Symbol == 'o')
+                                    {
+                                        _parser.objects[i, j].NorthField.NorthField.Object = _parser.objects[i, j].NorthField.Object;
+                                        _parser.objects[i, j].NorthField.NorthField.setDefaultSymbol();
+                                        _parser.objects[i, j].NorthField.Object = _parser.objects[i, j].Object;
+                                        _parser.objects[i, j].NorthField.setDefaultSymbol();
+                                        _parser.objects[i, j].Object = null;
+                                        _parser.objects[i, j].setDefaultSymbol();
+                                        Console.Clear();
+                                        _parser.PrintObjects();
+                                        Console.WriteLine("links");
+                                        // moveLeft //
+                                        return;
+
+                                    }
                                     return;
                                 case ConsoleKey.DownArrow:
-                                    if (_parser.objects[i, j].SouthField.Symbol != '#')
+                                    if (_parser.objects[i, j].SouthField.Symbol != '#' && _parser.objects[i, j].SouthField.Symbol != 'o')
                                     {
                                         _parser.objects[i, j].SouthField.Object = _parser.objects[i, j].Object;
                                         _parser.objects[i, j].SouthField.setDefaultSymbol();
@@ -127,6 +161,20 @@ namespace ConsoleApp4
                                         _parser.PrintObjects();
                                         Console.WriteLine("omlaag");
                                         // movedown //
+                                        return;
+                                    }
+                                    else if (_parser.objects[i, j].SouthField.Symbol == 'o')
+                                    {
+                                        _parser.objects[i, j].SouthField.SouthField.Object = _parser.objects[i, j].SouthField.Object;
+                                        _parser.objects[i, j].SouthField.SouthField.setDefaultSymbol();
+                                        _parser.objects[i, j].SouthField.Object = _parser.objects[i, j].Object;
+                                        _parser.objects[i, j].SouthField.setDefaultSymbol();
+                                        _parser.objects[i, j].Object = null;
+                                        _parser.objects[i, j].setDefaultSymbol();
+                                        Console.Clear();
+                                        _parser.PrintObjects();
+                                        Console.WriteLine("links");
+                                        // moveLeft //
                                         return;
                                     }
                                     return;
