@@ -65,7 +65,7 @@ namespace ConsoleApp4
                             switch (choice)
                             {
                                 case ConsoleKey.LeftArrow:
-                                    if (_parser.objects[i, j].WestField.Symbol != '#')
+                                    if (_parser.objects[i, j].WestField.Symbol != '#' && _parser.objects[i, j].WestField.Symbol != 'o')
                                     {
                                         _parser.objects[i, j].WestField.Object = _parser.objects[i, j].Object;
                                         _parser.objects[i, j].WestField.setDefaultSymbol();
@@ -76,6 +76,16 @@ namespace ConsoleApp4
                                         Console.WriteLine("links");
                                         // moveLeft //
                                         return;
+                                    }
+                                    else if (_parser.objects[i, j].WestField.Symbol == 'o')
+                                    {
+                                        _parser.objects[i, j].WestField.WestField.Object = _parser.objects[i, j].WestField.Object;
+                                        _parser.objects[i, j].WestField.WestField.setDefaultSymbol();
+                                        _parser.objects[i, j].WestField.Object = _parser.objects[i, j].Object;
+                                        _parser.objects[i, j].WestField.setDefaultSymbol();
+                                        _parser.objects[i, j].Object = null;
+                                        _parser.objects[i, j].setDefaultSymbol();
+                                        
                                     }
                                     return;
                                 case ConsoleKey.RightArrow:
