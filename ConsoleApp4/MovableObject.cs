@@ -7,12 +7,14 @@ namespace ConsoleApp4
 {
     public abstract class MovableObject
     {
+        private char _symbol;
 
         public Char Symbol
         {
-            get => default(char);
+            get { return this._symbol; }
             set
             {
+                this._symbol = value;
             }
         }
 

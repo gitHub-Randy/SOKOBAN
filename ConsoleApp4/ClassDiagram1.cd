@@ -3,14 +3,14 @@
   <Class Name="ConsoleApp4.MagazijnMedewerker">
     <Position X="4" Y="8.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MagazijnMedewerker.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ConsoleApp4.Muur">
     <Position X="10" Y="8.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Muur.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -24,7 +24,7 @@
   <Class Name="ConsoleApp4.Kist">
     <Position X="1.5" Y="9.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Kist.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -66,7 +66,7 @@
   <Class Name="ConsoleApp4.Destination">
     <Position X="15.25" Y="9.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Destination.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -87,21 +87,21 @@
   <Class Name="ConsoleApp4.EmptySpace">
     <Position X="17.25" Y="8.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>EmptySpace.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ConsoleApp4.Vloer">
     <Position X="12" Y="9.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAgAAAAIBAAAAAAAAAIAAAAAAAAAIAAAAAAgAAAAAAA=</HashCode>
+      <HashCode>AAAAAAEIAAAAAAAAAAAAAAAAAAAAIAAAAAAAAACAAAA=</HashCode>
       <FileName>Vloer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ConsoleApp4.Parser">
     <Position X="12.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAACAAAAAAIAAAIAAQAAAAAAAEAAAIAAAAAFAAAEA=</HashCode>
+      <HashCode>AAAAACAAAAAAACBAAIAAAAgAAQKAAAAAAAAAAFAAAEA=</HashCode>
       <FileName>Parser.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -109,9 +109,9 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="ConsoleApp4.StaticObject">
-    <Position X="13.25" Y="5.25" Width="1.5" />
+    <Position X="15" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAgAAAAABAAAAAAAAAIAAAAAAAAAAAAAAAAgAAAACAA=</HashCode>
+      <HashCode>AAgAAAEABAAAAAACEAIAAAAAAYAAAAAAAAAoAACACAA=</HashCode>
       <FileName>StaticObject.cs</FileName>
     </TypeIdentifier>
   </Class>

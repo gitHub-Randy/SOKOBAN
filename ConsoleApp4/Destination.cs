@@ -13,16 +13,38 @@
             set
             {
                 this._object = value;
-                if (_object.Symbol == '@')
+                if (_object != null)
                 {
-                    this.Symbol = '@';
+                    if (_object.Symbol == '@')
+                    {
+                        this.Symbol = '@';
+                    }
+                    else if (_object.Symbol == 'o')
+                    {
+                        this.Symbol = '0';
+                    }
                 }
-                else if (_object.Symbol == 'o')
+                else
                 {
                     this.Symbol = '0';
                 }
+                
+                
 
             }
+        }
+
+        public override void setDefaultSymbol()
+        {
+            if (this._object == null)
+            {
+                this.Symbol = 'x';
+            }
+            else
+            {
+                this.Symbol = _object.Symbol;
+            }
+            
         }
     }
 }

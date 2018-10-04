@@ -8,9 +8,9 @@ namespace ConsoleApp4
     public class MagazijnMedewerker : MovableObject
     {
         
-        public void iets()
+       public MagazijnMedewerker()
         {
-            
+            this.Symbol = '@';
         }
     }
 }

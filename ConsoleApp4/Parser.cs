@@ -58,32 +58,34 @@ namespace ConsoleApp4
                         case '#':
                             //MakeWall();
                             objects[i, j] = new Muur();
-                            objects[i, j].Symbol = '#';
+                            objects[i, j].setDefaultSymbol();
                             break;
                         case '.':
                             //MakeFloor();
                             objects[i, j] = new Vloer('.', false, false);
-                            objects[i, j].Symbol = '.';
+                            objects[i, j].setDefaultSymbol();
                             break;
                         case '@':
                             //MakeTruck();
                             objects[i, j] = new Vloer('@', true, false);
-                            objects[i, j].Symbol = '@';
+                            objects[i, j].Object = new MagazijnMedewerker();
+                            objects[i, j].setDefaultSymbol();
                             break;
                         case 'o':
                             //MakeBox();
                             objects[i, j] = new Vloer('o', false, true);
-                            objects[i, j].Symbol = 'o';
+                            objects[i, j].Object = new Kist();
+                            objects[i, j].setDefaultSymbol();
                             break;
                         case 'x':
                             //MakeDestination();
                             objects[i, j] = new Destination();
-                            objects[i, j].Symbol = 'x';
+                            objects[i, j].setDefaultSymbol();
                             break;
                         case ' ':
                             //MakeEmptySpace();
                             objects[i, j] = new EmptySpace();
-                            objects[i, j].Symbol = '█';
+                            objects[i, j].setDefaultSymbol();
                             break;
                         default:
                             break;

@@ -7,6 +7,11 @@ namespace ConsoleApp4
 {
     public class Kist : MovableObject
     {
-      
+       
+        public Kist()
+        {
+            this.Symbol = 'o';
+        }
+
     }
 }

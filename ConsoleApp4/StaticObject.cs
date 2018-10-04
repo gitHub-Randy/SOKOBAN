@@ -64,5 +64,10 @@ namespace ConsoleApp4
             get;
             set;
         }
+
+        public abstract void setDefaultSymbol();
+        
+
+        
     }
 }

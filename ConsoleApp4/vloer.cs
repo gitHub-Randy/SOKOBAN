@@ -8,22 +8,21 @@ namespace ConsoleApp4
         private MovableObject _object;
         public Vloer(char c, bool hasTruck, bool hasKist)
         {
-            if (c == '@')
-            {
 
-                this.hasTruck = true;
-
-            }
-            else if (c == 'o')
-            {
-
-                hasKist = true;
-
-            }
         }
 
 
-
+        public override void setDefaultSymbol()
+        {
+            if(this._object == null)
+            {
+                this.Symbol = '.';
+            }
+            else
+            {
+                this.Symbol = this._object.Symbol;
+            }
+        }
 
         public bool hasTruck
         {

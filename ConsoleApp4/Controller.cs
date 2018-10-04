@@ -65,39 +65,61 @@ namespace ConsoleApp4
                             switch (choice)
                             {
                                 case ConsoleKey.LeftArrow:
-
-                                    _parser.objects[i, j - 1].Symbol = '@';
-                                    _parser.objects[i, j].Symbol = '.';
-                                    Console.Clear();
-                                    _parser.PrintObjects();
-                                    Console.WriteLine("links");
-                                    // moveLeft //
+                                    if (_parser.objects[i, j].WestField.Symbol != '#')
+                                    {
+                                        _parser.objects[i, j].WestField.Object = _parser.objects[i, j].Object;
+                                        _parser.objects[i, j].WestField.setDefaultSymbol();
+                                        _parser.objects[i, j].Object = null;
+                                        _parser.objects[i, j].setDefaultSymbol();
+                                        Console.Clear();
+                                        _parser.PrintObjects();
+                                        Console.WriteLine("links");
+                                        // moveLeft //
+                                        return;
+                                    }
                                     return;
                                 case ConsoleKey.RightArrow:
-                                    _parser.objects[i, j + 1].Symbol = '@';
-                                    _parser.objects[i, j].Symbol = '.';
-                                    Console.Clear();
-                                    _parser.PrintObjects();
-                                    Console.WriteLine("rechts");
-                                    // moveright //
+                                    if (_parser.objects[i, j].EastField.Symbol != '#')
+                                    {
+                                        _parser.objects[i, j].EastField.Object = _parser.objects[i, j].Object;
+                                        _parser.objects[i, j].EastField.setDefaultSymbol();
+                                        _parser.objects[i, j].Object = null;
+                                        _parser.objects[i, j].setDefaultSymbol();
+                                        Console.Clear();
+                                        _parser.PrintObjects();
+                                        Console.WriteLine("rechts");
+                                        // moveright //
+                                        return;
+                                    } 
                                     return;
                                 case ConsoleKey.UpArrow:
-                                    _parser.objects[i - 1, j].Symbol = '@';
-                                    _parser.objects[i, j].Symbol = '.';
-                                    Console.Clear();
-                                    _parser.PrintObjects();
-                                    Console.WriteLine("omhoog");
-                                    // moveup //
+                                    if (_parser.objects[i, j].NorthField.Symbol != '#')
+                                    {
+                                        _parser.objects[i, j].NorthField.Object = _parser.objects[i, j].Object;
+                                        _parser.objects[i, j].NorthField.setDefaultSymbol();
+                                        _parser.objects[i, j].Object = null;
+                                        _parser.objects[i, j].setDefaultSymbol();
+                                        Console.Clear();
+                                        _parser.PrintObjects();
+                                        Console.WriteLine("omhoog");
+                                        // moveup //
+                                        return;
+                                    }
                                     return;
                                 case ConsoleKey.DownArrow:
-                                    _parser.objects[i + 1, j].Symbol = '@';
-                                    _parser.objects[i, j].Symbol = '.';
-                                    Console.Clear();
-                                    _parser.PrintObjects();
-                                    Console.WriteLine("omlaag");
-                                    // movedown //
+                                    if (_parser.objects[i, j].SouthField.Symbol != '#')
+                                    {
+                                        _parser.objects[i, j].SouthField.Object = _parser.objects[i, j].Object;
+                                        _parser.objects[i, j].SouthField.setDefaultSymbol();
+                                        _parser.objects[i, j].Object = null;
+                                        _parser.objects[i, j].setDefaultSymbol();
+                                        Console.Clear();
+                                        _parser.PrintObjects();
+                                        Console.WriteLine("omlaag");
+                                        // movedown //
+                                        return;
+                                    }
                                     return;
-
                             }
                             
                         }
