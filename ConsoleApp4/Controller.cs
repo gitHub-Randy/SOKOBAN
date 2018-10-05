@@ -23,7 +23,7 @@ namespace ConsoleApp4
             //_inputView.ShowMenu();
             //keyInputEvent();
 
-            while (true)
+            while (!CheckWin())
             {
                 KeyInputEventGame();
             }
@@ -65,14 +65,14 @@ namespace ConsoleApp4
                             switch (choice)
                             {
                                 case ConsoleKey.LeftArrow:
-                                    if (_parser.objects[i, j].WestField.Symbol != '#' && _parser.objects[i, j].WestField.Symbol != 'o')
+                                    if (_parser.objects[i, j].WestField.Symbol != '#' && _parser.objects[i, j].WestField.Symbol != 'o' && _parser.objects[i, j].WestField.Symbol != '0')
                                     {
 
                                         _parser.objects[i, j].Object.Move(_parser.objects[i, j].WestField, _parser.objects[i, j]);
                                         _parser.PrintObjects();
                                         return;
                                     }
-                                    else if (_parser.objects[i, j].WestField.Symbol == 'o')
+                                    else if (_parser.objects[i, j].WestField.Symbol == 'o' || _parser.objects[i, j].WestField.Symbol == '0')
                                     {
 
 
@@ -84,14 +84,14 @@ namespace ConsoleApp4
                                     }
                                     return;
                                 case ConsoleKey.RightArrow:
-                                    if (_parser.objects[i, j].EastField.Symbol != '#' && _parser.objects[i, j].EastField.Symbol != 'o')
+                                    if (_parser.objects[i, j].EastField.Symbol != '#' && _parser.objects[i, j].EastField.Symbol != 'o' && _parser.objects[i, j].EastField.Symbol != '0')
                                     {
 
                                         _parser.objects[i, j].Object.Move(_parser.objects[i, j].EastField, _parser.objects[i, j]);
                                         _parser.PrintObjects();
                                         return;
                                     }
-                                    else if (_parser.objects[i, j].EastField.Symbol == 'o')
+                                    else if (_parser.objects[i, j].EastField.Symbol == 'o' || _parser.objects[i, j].EastField.Symbol == '0')
                                     {
 
                                         _parser.objects[i, j].EastField.Object.Move(_parser.objects[i, j].EastField.EastField, _parser.objects[i, j].EastField);
@@ -101,13 +101,13 @@ namespace ConsoleApp4
                                     }
                                     return;
                                 case ConsoleKey.UpArrow:
-                                    if (_parser.objects[i, j].NorthField.Symbol != '#' && _parser.objects[i, j].NorthField.Symbol != 'o')
+                                    if (_parser.objects[i, j].NorthField.Symbol != '#' && _parser.objects[i, j].NorthField.Symbol != 'o' && _parser.objects[i, j].NorthField.Symbol != '0')
                                     {
                                         _parser.objects[i, j].Object.Move(_parser.objects[i, j].NorthField, _parser.objects[i, j]);
                                         _parser.PrintObjects();
                                         return;
                                     }
-                                    else if (_parser.objects[i, j].NorthField.Symbol == 'o')
+                                    else if (_parser.objects[i, j].NorthField.Symbol == 'o'|| _parser.objects[i, j].NorthField.Symbol == '0' )
                                     {
 
                                         _parser.objects[i, j].NorthField.Object.Move(_parser.objects[i, j].NorthField.NorthField, _parser.objects[i, j].NorthField);
@@ -118,13 +118,13 @@ namespace ConsoleApp4
                                     }
                                     return;
                                 case ConsoleKey.DownArrow:
-                                    if (_parser.objects[i, j].SouthField.Symbol != '#' && _parser.objects[i, j].SouthField.Symbol != 'o')
+                                    if (_parser.objects[i, j].SouthField.Symbol != '#' && _parser.objects[i, j].SouthField.Symbol != 'o' && _parser.objects[i, j].SouthField.Symbol != '0')
                                     {
                                         _parser.objects[i, j].Object.Move(_parser.objects[i, j].SouthField, _parser.objects[i, j]);
                                         _parser.PrintObjects();
                                         return;
                                     }
-                                    else if (_parser.objects[i, j].SouthField.Symbol == 'o')
+                                    else if (_parser.objects[i, j].SouthField.Symbol == 'o' || _parser.objects[i, j].SouthField.Symbol == '0')
                                     {
                                         _parser.objects[i, j].SouthField.Object.Move(_parser.objects[i, j].SouthField.SouthField, _parser.objects[i, j].SouthField);
                                         _parser.objects[i, j].Object.Move(_parser.objects[i, j].SouthField, _parser.objects[i, j]);
@@ -141,6 +141,28 @@ namespace ConsoleApp4
                 }
             }
            
+        }
+
+        public bool CheckWin()
+        {
+            int barrelsOnDest = 0;
+            for (int i = 0; i < _parser.numberOfRows; i++)
+            {
+                for (int j = 0; j < _parser.lengthOfRows; j++)
+                {
+                    if (_parser.objects[i, j].Symbol == '0')
+                    {
+                        barrelsOnDest++;
+                    }
+                    
+                }
+            }
+            if(barrelsOnDest == _parser.numOfKist)
+            {
+                return true;
+            }
+            return false;
+            
         }
      
     }

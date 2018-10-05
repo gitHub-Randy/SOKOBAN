@@ -10,6 +10,7 @@ namespace ConsoleApp4
         public int lengthOfRows;
         public String[] lines;
         public Char[,] char2d;
+        public int numOfKist;
         public Parser(Controller control)
         {
             _controller = control;
@@ -17,7 +18,7 @@ namespace ConsoleApp4
         }
         public override void ParseLevel()
         {
-            lines = System.IO.File.ReadAllLines("doolhof1.txt");
+            lines = System.IO.File.ReadAllLines("doolhof6.txt");
             numberOfRows = lines.Length;
             lengthOfRows = lines[0].Length;
             char2d = new Char[numberOfRows, lengthOfRows];
@@ -76,15 +77,28 @@ namespace ConsoleApp4
                             objects[i, j] = new Vloer('o', false, true);
                             objects[i, j].Object = new Kist();
                             objects[i, j].setDefaultSymbol();
+                            numOfKist++;
                             break;
                         case 'x':
                             //MakeDestination();
                             objects[i, j] = new Destination();
                             objects[i, j].setDefaultSymbol();
+                            
                             break;
                         case ' ':
                             //MakeEmptySpace();
                             objects[i, j] = new EmptySpace();
+                            objects[i, j].setDefaultSymbol();
+                            break;
+                        case '~':
+                           //MakeBrokenIsle
+                            objects[i, j] = new BrokenFloor();
+                            objects[i, j].setDefaultSymbol();
+                            break;
+                        case '$':
+                            //MakeBrokenIsle
+                            objects[i, j] = new Vloer('.',false,false);
+                            objects[i, j].Object = new Sleeper();
                             objects[i, j].setDefaultSymbol();
                             break;
                         default:

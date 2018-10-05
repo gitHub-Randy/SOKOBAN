@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BrokenFloor.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="Destination.cs" />
     <Compile Include="Doolhof.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Parser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MovableObject.cs" />
+    <Compile Include="Sleeper.cs" />
     <Compile Include="StaticObject.cs" />
     <Compile Include="Vloer.cs" />
   </ItemGroup>

@@ -11,7 +11,7 @@ namespace ConsoleApp4
 
         public override void setDefaultSymbol()
         {
-            throw new NotImplementedException();
+            this.Symbol = ' ';
         }
     }
 }
