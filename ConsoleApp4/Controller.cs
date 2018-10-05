@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 
 namespace ConsoleApp4
 {
-    public  class Controller 
+    public class Controller
     {
         String _string = "he";
         private Doolhof _dh;
@@ -32,9 +28,9 @@ namespace ConsoleApp4
 
         }
 
-       private void keyInputEvent()
+        private void keyInputEvent()
         {
-            
+
             do
             {
                 choice = Console.ReadKey();
@@ -48,16 +44,16 @@ namespace ConsoleApp4
             while (choice.Key != ConsoleKey.S);
         }
 
-       private void KeyInputEventGame()
+        private void KeyInputEventGame()
         {
             ConsoleKey choice;
 
-            
+
             for (int i = 0; i < _parser.numberOfRows; i++)
             {
                 for (int j = 0; j < _parser.lengthOfRows; j++)
                 {
-                    if (_parser.objects[i,j].Symbol == '@')
+                    if (_parser.objects[i, j].Symbol == '@')
                     {
                         while (true)
                         {
@@ -107,7 +103,7 @@ namespace ConsoleApp4
                                         _parser.PrintObjects();
                                         return;
                                     }
-                                    else if (_parser.objects[i, j].NorthField.Symbol == 'o'|| _parser.objects[i, j].NorthField.Symbol == '0' )
+                                    else if (_parser.objects[i, j].NorthField.Symbol == 'o' || _parser.objects[i, j].NorthField.Symbol == '0')
                                     {
 
                                         _parser.objects[i, j].NorthField.Object.Move(_parser.objects[i, j].NorthField.NorthField, _parser.objects[i, j].NorthField);
@@ -133,14 +129,14 @@ namespace ConsoleApp4
                                     }
                                     return;
                             }
-                            
+
                         }
-                        
-                        
+
+
                     }
                 }
             }
-           
+
         }
 
         public bool CheckWin()
@@ -154,16 +150,18 @@ namespace ConsoleApp4
                     {
                         barrelsOnDest++;
                     }
-                    
+
                 }
             }
-            if(barrelsOnDest == _parser.numOfKist)
+            if (barrelsOnDest == _parser.numOfKist)
             {
                 return true;
             }
             return false;
-            
+
         }
-     
     }
 }
+
+
+        

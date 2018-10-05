@@ -15,7 +15,42 @@ namespace ConsoleApp4
         }
         public override void Move(StaticObject destiantion, StaticObject current)
         {
-            throw new NotImplementedException();
+            Random rnd = new Random();
+            int wheelOfFortune = rnd.Next(1, 101);
+            if(this.Symbol == 'z')
+            {
+                if(wheelOfFortune <= 10)
+                {
+                    WakeUp(current);
+                }
+            }
+            else
+            {
+                if(wheelOfFortune <= 25)
+                {
+                    Sleep();
+                }
+            }
+            if (destiantion.Object == null)
+            {
+                destiantion.Object = this;
+                destiantion.setDefaultSymbol();
+                current.Object = null;
+                current.setDefaultSymbol();
+
+            }
+        }
+
+        public void Sleep()
+        {
+            this.Symbol = 'z';
+        }
+
+        public void WakeUp(StaticObject current)
+        {
+            this.Symbol = '$';
+
+
         }
     }
 }
