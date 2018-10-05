@@ -11,6 +11,24 @@ namespace ConsoleApp4
        public MagazijnMedewerker()
         {
             this.Symbol = '@';
+            
         }
+
+        public override  void Move(StaticObject destiantion, StaticObject current)
+        {
+            if(destiantion.Object == null)
+            {
+                destiantion.Object = this;
+                destiantion.setDefaultSymbol();
+                current.Object = null;
+                current.setDefaultSymbol();
+               
+            }
+
+            Console.Clear();
+
+        }
+
+     
     }
 }

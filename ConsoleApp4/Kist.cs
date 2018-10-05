@@ -13,5 +13,18 @@ namespace ConsoleApp4
             this.Symbol = 'o';
         }
 
+        public override void Move(StaticObject destination, StaticObject current)
+        {
+         
+
+            if (destination.Object == null && destination.Symbol != '#')
+            {
+                destination.Object = this;
+                destination.setDefaultSymbol();
+                current.Object = null;
+                current.setDefaultSymbol();
+
+            }
+        }
     }
 }

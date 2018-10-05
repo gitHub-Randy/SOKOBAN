@@ -44,6 +44,10 @@
             {
                 this.Symbol = _object.Symbol;
             }
+            if(this.Symbol == 'o')
+            {
+                this.Symbol = '0';
+            }
             
         }
     }

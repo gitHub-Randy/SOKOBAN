@@ -26,9 +26,7 @@ namespace ConsoleApp4
             }
         }
 
-        public void Move()
-        {
-            throw new System.NotImplementedException();
-        }
+        public  abstract void Move(StaticObject destiantion, StaticObject current);
+        
     }
 }
