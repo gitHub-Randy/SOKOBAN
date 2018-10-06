@@ -61,10 +61,12 @@ namespace ConsoleApp4
 
             Random rnd = new Random();
             int direction = rnd.Next(1, 5);
+            Console.WriteLine(direction + "direction");
             switch (direction)
             {
+                
                 case 1:
-                    if(current.NorthField.Object == null)
+                    if(current.NorthField.Object == null && current.NorthField.Symbol != '#')
                     {
                         current.NorthField.Object = this;
                         current.NorthField.setDefaultSymbol();

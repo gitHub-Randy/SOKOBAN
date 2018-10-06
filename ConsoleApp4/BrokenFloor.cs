@@ -36,6 +36,7 @@
                     if (numberOfObjects > 2)
                     {
                         this._object = null;
+                        this.Symbol = ' ';
                     }
                     else
                     {
