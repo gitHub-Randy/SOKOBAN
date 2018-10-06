@@ -26,7 +26,7 @@ namespace ConsoleApp4
             }
         }
 
-        public  abstract void Move(StaticObject destiantion, StaticObject current);
+        public  abstract bool Move(StaticObject destiantion, StaticObject current,bool WakeUP);
         
     }
 }

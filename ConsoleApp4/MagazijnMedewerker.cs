@@ -14,18 +14,34 @@ namespace ConsoleApp4
             
         }
 
-        public override  void Move(StaticObject destiantion, StaticObject current)
+        public override  bool Move(StaticObject destiantion, StaticObject current,bool WakeUp)
         {
-            if(destiantion.Object == null)
+            if(destiantion.Object == null && destiantion.Symbol != '#' )
             {
                 destiantion.Object = this;
                 destiantion.setDefaultSymbol();
                 current.Object = null;
                 current.setDefaultSymbol();
-               
+                return true;
+            }
+            else if(destiantion.Object != null)
+            {
+                 if (destiantion.Object.Symbol == 'z')
+                {
+                    if (destiantion.Object.Move(destiantion, destiantion, true))
+                    {
+                        destiantion.Object = this;
+                        destiantion.setDefaultSymbol();
+                        current.Object = null;
+                        current.setDefaultSymbol();
+                        return true;
+                    }
+                }
+            
             }
 
-            Console.Clear();
+
+            return false;
 
         }
 

@@ -64,8 +64,9 @@ namespace ConsoleApp4
                                     if (_parser.objects[i, j].WestField.Symbol != '#' && _parser.objects[i, j].WestField.Symbol != 'o' && _parser.objects[i, j].WestField.Symbol != '0')
                                     {
 
-                                        _parser.objects[i, j].Object.Move(_parser.objects[i, j].WestField, _parser.objects[i, j]);
+                                         _parser.objects[i, j].Object.Move(_parser.objects[i, j].WestField, _parser.objects[i, j],false);
                                         MoveSleeper();
+                                        
                                         _parser.PrintObjects();
                                         return;
                                     }
@@ -73,8 +74,8 @@ namespace ConsoleApp4
                                     {
 
 
-                                        _parser.objects[i, j].WestField.Object.Move(_parser.objects[i, j].WestField.WestField, _parser.objects[i, j].WestField);
-                                        _parser.objects[i, j].Object.Move(_parser.objects[i, j].WestField, _parser.objects[i, j]);
+                                        _parser.objects[i, j].WestField.Object.Move(_parser.objects[i, j].WestField.WestField, _parser.objects[i, j].WestField, false);
+                                        _parser.objects[i, j].Object.Move(_parser.objects[i, j].WestField, _parser.objects[i, j], false);
                                         MoveSleeper();
                                         _parser.PrintObjects();
                                         return;
@@ -85,7 +86,7 @@ namespace ConsoleApp4
                                     if (_parser.objects[i, j].EastField.Symbol != '#' && _parser.objects[i, j].EastField.Symbol != 'o' && _parser.objects[i, j].EastField.Symbol != '0')
                                     {
 
-                                        _parser.objects[i, j].Object.Move(_parser.objects[i, j].EastField, _parser.objects[i, j]);
+                                        _parser.objects[i, j].Object.Move(_parser.objects[i, j].EastField, _parser.objects[i, j], false);
                                         MoveSleeper();
                                         _parser.PrintObjects();
                                         return;
@@ -93,8 +94,8 @@ namespace ConsoleApp4
                                     else if (_parser.objects[i, j].EastField.Symbol == 'o' || _parser.objects[i, j].EastField.Symbol == '0')
                                     {
 
-                                        _parser.objects[i, j].EastField.Object.Move(_parser.objects[i, j].EastField.EastField, _parser.objects[i, j].EastField);
-                                        _parser.objects[i, j].Object.Move(_parser.objects[i, j].EastField, _parser.objects[i, j]);
+                                        _parser.objects[i, j].EastField.Object.Move(_parser.objects[i, j].EastField.EastField, _parser.objects[i, j].EastField, false);
+                                        _parser.objects[i, j].Object.Move(_parser.objects[i, j].EastField, _parser.objects[i, j], false);
                                         MoveSleeper();
                                         _parser.PrintObjects();
                                         return;
@@ -103,7 +104,7 @@ namespace ConsoleApp4
                                 case ConsoleKey.UpArrow:
                                     if (_parser.objects[i, j].NorthField.Symbol != '#' && _parser.objects[i, j].NorthField.Symbol != 'o' && _parser.objects[i, j].NorthField.Symbol != '0')
                                     {
-                                        _parser.objects[i, j].Object.Move(_parser.objects[i, j].NorthField, _parser.objects[i, j]);
+                                        _parser.objects[i, j].Object.Move(_parser.objects[i, j].NorthField, _parser.objects[i, j], false);
                                         MoveSleeper();
                                         _parser.PrintObjects();
                                         return;
@@ -111,8 +112,8 @@ namespace ConsoleApp4
                                     else if (_parser.objects[i, j].NorthField.Symbol == 'o' || _parser.objects[i, j].NorthField.Symbol == '0')
                                     {
 
-                                        _parser.objects[i, j].NorthField.Object.Move(_parser.objects[i, j].NorthField.NorthField, _parser.objects[i, j].NorthField);
-                                        _parser.objects[i, j].Object.Move(_parser.objects[i, j].NorthField, _parser.objects[i, j]);
+                                        _parser.objects[i, j].NorthField.Object.Move(_parser.objects[i, j].NorthField.NorthField, _parser.objects[i, j].NorthField, false);
+                                        _parser.objects[i, j].Object.Move(_parser.objects[i, j].NorthField, _parser.objects[i, j], false);
                                         MoveSleeper();
                                         _parser.PrintObjects();
                                         return;
@@ -122,15 +123,15 @@ namespace ConsoleApp4
                                 case ConsoleKey.DownArrow:
                                     if (_parser.objects[i, j].SouthField.Symbol != '#' && _parser.objects[i, j].SouthField.Symbol != 'o' && _parser.objects[i, j].SouthField.Symbol != '0')
                                     {
-                                        _parser.objects[i, j].Object.Move(_parser.objects[i, j].SouthField, _parser.objects[i, j]);
+                                        _parser.objects[i, j].Object.Move(_parser.objects[i, j].SouthField, _parser.objects[i, j], false);
                                         MoveSleeper();
                                         _parser.PrintObjects();
                                         return;
                                     }
                                     else if (_parser.objects[i, j].SouthField.Symbol == 'o' || _parser.objects[i, j].SouthField.Symbol == '0')
                                     {
-                                        _parser.objects[i, j].SouthField.Object.Move(_parser.objects[i, j].SouthField.SouthField, _parser.objects[i, j].SouthField);
-                                        _parser.objects[i, j].Object.Move(_parser.objects[i, j].SouthField, _parser.objects[i, j]);
+                                        _parser.objects[i, j].SouthField.Object.Move(_parser.objects[i, j].SouthField.SouthField, _parser.objects[i, j].SouthField, false);
+                                        _parser.objects[i, j].Object.Move(_parser.objects[i, j].SouthField, _parser.objects[i, j], false);
                                         MoveSleeper();
                                         _parser.PrintObjects();
                                         return;
@@ -155,7 +156,8 @@ namespace ConsoleApp4
                 {
                     if (_parser.objects[i, j].Symbol == '$' || _parser.objects[i, j].Symbol == 'z'  )
                     {
-                        _parser.objects[i, j].Object.Move(_parser.objects[i, j], _parser.objects[i, j]);
+                        _parser.objects[i, j].Object.Move(_parser.objects[i, j], _parser.objects[i, j], false);
+                        return;
                     }
                 }
             }

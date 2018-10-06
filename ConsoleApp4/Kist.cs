@@ -13,7 +13,7 @@ namespace ConsoleApp4
             this.Symbol = 'o';
         }
 
-        public override void Move(StaticObject destination, StaticObject current)
+        public override bool Move(StaticObject destination, StaticObject current,bool wakeUp)
         {
          
 
@@ -23,8 +23,10 @@ namespace ConsoleApp4
                 destination.setDefaultSymbol();
                 current.Object = null;
                 current.setDefaultSymbol();
+                return true;
 
             }
+            return false;
         }
     }
 }
