@@ -7,12 +7,12 @@ namespace ConsoleApp4
 {
     public abstract class StaticObject
     {
-       private  StaticObject _northField;
-        private StaticObject _southField;
-        private StaticObject _eastField;
-        private StaticObject _westField;
-        private char _symbol;
-        private MovableObject _object;
+        protected StaticObject _northField;
+        protected StaticObject _southField;
+        protected StaticObject _eastField;
+        protected StaticObject _westField;
+        protected char _symbol;
+        protected MovableObject _object;
 
         public StaticObject NorthField
         {

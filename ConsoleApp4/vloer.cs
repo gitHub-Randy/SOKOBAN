@@ -5,7 +5,7 @@ namespace ConsoleApp4
     public class Vloer : StaticObject
     {
 
-        private MovableObject _object;
+        
         public Vloer(char c, bool hasTruck, bool hasKist)
         {
 

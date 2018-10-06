@@ -3,10 +3,6 @@
     public class Destination : StaticObject
     {
 
-        private MovableObject _object;
-
-      
-
         public override MovableObject Object
         {
             get { return this._object; }

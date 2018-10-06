@@ -2,27 +2,48 @@
 
 namespace ConsoleApp4
 {
-    public class Parser : IParser
+    public class Parser
     {
-       public Controller _controller;
-        public StaticObject[,] objects;
-        public int numberOfRows;
-        public int lengthOfRows;
-        public String[] lines;
-        public Char[,] char2d;
-        public int numOfKist;
+        private Controller _controller;
+        private StaticObject[,] _object;
+        private int numberOfRows;
+        private int lengthOfRows;
+        private String[] lines;
+        private Char[,] char2d;
+        private int numOfKist;
         public Parser(Controller control)
         {
             _controller = control;
-            ParseLevel();
+            
         }
-        public override void ParseLevel()
+
+        public StaticObject[,] Object
         {
-            lines = System.IO.File.ReadAllLines("doolhof6.txt");
+            get { return this._object; }
+        }
+
+        public int NumberOfRows
+        {
+            get { return numberOfRows; }
+        }
+
+        public int LengthOfRows
+        {
+            get { return lengthOfRows; }
+        }
+
+        public int NumOfKist
+        {
+            get { return numOfKist; }
+        }
+        public void ParseLevel(int level)
+        {
+
+            lines = System.IO.File.ReadAllLines("doolhof" + level + ".txt");
             numberOfRows = lines.Length;
             lengthOfRows = lines[0].Length;
             char2d = new Char[numberOfRows, lengthOfRows];
-            objects = new StaticObject[numberOfRows, lengthOfRows];
+            _object = new StaticObject[numberOfRows, lengthOfRows];
 
             ReadTextFile();
             MakeObjects();
@@ -58,48 +79,48 @@ namespace ConsoleApp4
                     {
                         case '#':
                             //MakeWall();
-                            objects[i, j] = new Muur();
-                            objects[i, j].setDefaultSymbol();
+                            Object[i, j] = new Muur();
+                            Object[i, j].setDefaultSymbol();
                             break;
                         case '.':
                             //MakeFloor();
-                            objects[i, j] = new Vloer('.', false, false);
-                            objects[i, j].setDefaultSymbol();
+                            Object[i, j] = new Vloer('.', false, false);
+                            Object[i, j].setDefaultSymbol();
                             break;
                         case '@':
                             //MakeTruck();
-                            objects[i, j] = new Vloer('@', true, false);
-                            objects[i, j].Object = new MagazijnMedewerker();
-                            objects[i, j].setDefaultSymbol();
+                            Object[i, j] = new Vloer('@', true, false);
+                            Object[i, j].Object = new MagazijnMedewerker();
+                            Object[i, j].setDefaultSymbol();
                             break;
                         case 'o':
                             //MakeBox();
-                            objects[i, j] = new Vloer('o', false, true);
-                            objects[i, j].Object = new Kist();
-                            objects[i, j].setDefaultSymbol();
+                            Object[i, j] = new Vloer('o', false, true);
+                            Object[i, j].Object = new Kist();
+                            Object[i, j].setDefaultSymbol();
                             numOfKist++;
                             break;
                         case 'x':
                             //MakeDestination();
-                            objects[i, j] = new Destination();
-                            objects[i, j].setDefaultSymbol();
+                            Object[i, j] = new Destination();
+                            Object[i, j].setDefaultSymbol();
                             
                             break;
                         case ' ':
                             //MakeEmptySpace();
-                            objects[i, j] = new EmptySpace();
-                            objects[i, j].setDefaultSymbol();
+                            Object[i, j] = new EmptySpace();
+                            Object[i, j].setDefaultSymbol();
                             break;
                         case '~':
                            //MakeBrokenIsle
-                            objects[i, j] = new BrokenFloor();
-                            objects[i, j].setDefaultSymbol();
+                            Object[i, j] = new BrokenFloor();
+                            Object[i, j].setDefaultSymbol();
                             break;
                         case '$':
                             //MakeBrokenIsle
-                            objects[i, j] = new Vloer('.',false,false);
-                            objects[i, j].Object = new Sleeper();
-                            objects[i, j].setDefaultSymbol();
+                            Object[i, j] = new Vloer('.',false,false);
+                            Object[i, j].Object = new Sleeper();
+                            Object[i, j].setDefaultSymbol();
                             break;
                         default:
                             break;
@@ -120,19 +141,19 @@ namespace ConsoleApp4
 
                     if (i > 0)
                     {
-                        objects[i, j].NorthField = objects[i - 1, j];
+                        Object[i, j].NorthField = Object[i - 1, j];
                     }
                     if (i < numberOfRows)
                     {
-                        objects[i, j].SouthField = objects[i + 1, j];
+                        Object[i, j].SouthField = Object[i + 1, j];
                     }
                     if (j > 0)
                     {
-                        objects[i, j].WestField = objects[i, j - 1];
+                        Object[i, j].WestField = Object[i, j - 1];
                     }
                     if (j < lengthOfRows - 1)
                     {
-                        objects[i, j].EastField = objects[i, j + 1];
+                        Object[i, j].EastField = Object[i, j + 1];
                     }
                 }
             }
@@ -144,7 +165,7 @@ namespace ConsoleApp4
             {
                 for (int j = 0; j < lengthOfRows; j++)
                 {
-                    Console.Write(objects[i, j].Symbol);
+                    Console.Write(Object[i, j].Symbol);
                 }
                 Console.WriteLine();
             }

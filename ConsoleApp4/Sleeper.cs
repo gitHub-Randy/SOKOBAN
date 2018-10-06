@@ -11,7 +11,7 @@ namespace ConsoleApp4
         }
         public override bool Move(StaticObject destiantion, StaticObject current, bool wakeUp)
         {
-            Console.Clear();
+           
             if (wakeUp)
             {
                 return WakeUp(current);

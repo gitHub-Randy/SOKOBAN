@@ -7,7 +7,7 @@ namespace ConsoleApp4
 {
     public abstract class MovableObject
     {
-        private char _symbol;
+        protected char _symbol;
 
         public Char Symbol
         {

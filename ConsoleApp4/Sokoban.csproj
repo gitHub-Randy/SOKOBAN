@@ -50,7 +50,6 @@
     <Compile Include="Doolhof.cs" />
     <Compile Include="EmptySpace.cs" />
     <Compile Include="InputView.cs" />
-    <Compile Include="IParser.cs" />
     <Compile Include="Kist.cs" />
     <Compile Include="MagazijnMedewerker.cs" />
     <Compile Include="MainClass.cs" />
