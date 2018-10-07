@@ -6,15 +6,17 @@ namespace ConsoleApp4
     {
         private Doolhof _dh;
         private Parser _parser;
-        private OutputView _outputView;
         private InputView _inputView;
         private ConsoleKeyInfo choice;
         private int level;
+        private StaticObject[,] _board;
+        private int numOfRows;
+        private int lengthOfRows;
+        private GameView gameView;
         public Controller()
         {
             _dh = new Doolhof();
             _parser = new Parser(this);
-            _outputView = new OutputView();
             _inputView = new InputView();
             _inputView.ShowMenu();
             keyInputEvent();
@@ -41,6 +43,10 @@ namespace ConsoleApp4
                     Console.Clear();
                     level = 1;
                     _parser.ParseLevel(1);
+                    _board = _parser.Object;
+                    numOfRows = _parser.NumberOfRows;
+                    lengthOfRows = _parser.LengthOfRows;
+                    gameView = new GameView(_board, numOfRows, lengthOfRows);
                     return;
                 }
                 if (choice.Key == ConsoleKey.D2)
@@ -48,6 +54,10 @@ namespace ConsoleApp4
                     Console.Clear();
                     level = 2;
                     _parser.ParseLevel(2);
+                    _board = _parser.Object;
+                    numOfRows = _parser.NumberOfRows;
+                    lengthOfRows = _parser.LengthOfRows;
+                    gameView = new GameView(_board, numOfRows, lengthOfRows);
                     return;
                 }
                 if (choice.Key == ConsoleKey.D3)
@@ -55,6 +65,10 @@ namespace ConsoleApp4
                     Console.Clear();
                     level = 3;
                     _parser.ParseLevel(3);
+                    _board = _parser.Object;
+                    numOfRows = _parser.NumberOfRows;
+                    lengthOfRows = _parser.LengthOfRows;
+                    gameView = new GameView(_board, numOfRows, lengthOfRows);
                     return;
                 }
                 if (choice.Key == ConsoleKey.D4)
@@ -62,6 +76,10 @@ namespace ConsoleApp4
                     Console.Clear();
                     level = 4;
                     _parser.ParseLevel(4);
+                    _board = _parser.Object;
+                    numOfRows = _parser.NumberOfRows;
+                    lengthOfRows = _parser.LengthOfRows;
+                    gameView = new GameView(_board, numOfRows, lengthOfRows);
                     return;
                 }
                 if (choice.Key == ConsoleKey.D5)
@@ -69,6 +87,10 @@ namespace ConsoleApp4
                     Console.Clear();
                     level = 5;
                     _parser.ParseLevel(5);
+                    _board = _parser.Object;
+                    numOfRows = _parser.NumberOfRows;
+                    lengthOfRows = _parser.LengthOfRows;
+                    gameView = new GameView(_board, numOfRows, lengthOfRows);
                     return;
                 }
                 if (choice.Key == ConsoleKey.D6)
@@ -76,6 +98,10 @@ namespace ConsoleApp4
                     Console.Clear();
                     level = 6;
                     _parser.ParseLevel(6);
+                    _board = _parser.Object;
+                    numOfRows = _parser.NumberOfRows;
+                    lengthOfRows = _parser.LengthOfRows;
+                    gameView = new GameView(_board, numOfRows, lengthOfRows);
                     return;
                 }
                 if (choice.Key == ConsoleKey.S)
@@ -93,11 +119,11 @@ namespace ConsoleApp4
             ConsoleKey choice;
 
             
-            for (int i = 0; i < _parser.NumberOfRows; i++)
+            for (int i = 0; i < numOfRows; i++)
             {
-                for (int j = 0; j < _parser.LengthOfRows; j++)
+                for (int j = 0; j < lengthOfRows; j++)
                 {
-                    if (_parser.Object[i, j].Symbol == '@')
+                    if (_board[i, j].Symbol == '@')
                     {
                         while (true)
                         {
@@ -105,96 +131,107 @@ namespace ConsoleApp4
                             switch (choice)
                             {
                                 case ConsoleKey.LeftArrow:
-                                    if (_parser.Object[i, j].WestField.Symbol != '#' && _parser.Object[i, j].WestField.Symbol != 'o' && _parser.Object[i, j].WestField.Symbol != '0')
+                                    if (_board[i, j].WestField.Symbol != '#' && _board[i, j].WestField.Symbol != 'o' && _board[i, j].WestField.Symbol != '0')
                                     {
 
-                                         _parser.Object[i, j].Object.Move(_parser.Object[i, j].WestField, _parser.Object[i, j],false);
+                                        _board[i, j].Object.Move(_board[i, j].WestField, _board[i, j], false);
                                         MoveSleeper();
                                         Console.Clear();
-                                        _parser.PrintObjects();
+                                        gameView.Board = this._board;
+                                        gameView.PrintObjects();
+                                        
                                         return;
                                     }
-                                    else if (_parser.Object[i, j].WestField.Symbol == 'o' || _parser.Object[i, j].WestField.Symbol == '0')
+                                    else if (_board[i, j].WestField.Symbol == 'o' || _board[i, j].WestField.Symbol == '0')
                                     {
 
 
-                                        _parser.Object[i, j].WestField.Object.Move(_parser.Object[i, j].WestField.WestField, _parser.Object[i, j].WestField, false);
-                                        _parser.Object[i, j].Object.Move(_parser.Object[i, j].WestField, _parser.Object[i, j], false);
+                                        _board[i, j].WestField.Object.Move(_board[i, j].WestField.WestField, _board[i, j].WestField, false);
+                                        _board[i, j].Object.Move(_board[i, j].WestField, _board[i, j], false);
                                         MoveSleeper();
                                         Console.Clear();
-                                        _parser.PrintObjects();
+                                        gameView.Board = this._board;
+                                        gameView.PrintObjects();
                                         return;
 
                                     }
                                     return;
                                 case ConsoleKey.RightArrow:
-                                    if (_parser.Object[i, j].EastField.Symbol != '#' && _parser.Object[i, j].EastField.Symbol != 'o' && _parser.Object[i, j].EastField.Symbol != '0')
+                                    if (_board[i, j].EastField.Symbol != '#' && _board[i, j].EastField.Symbol != 'o' && _board[i, j].EastField.Symbol != '0')
                                     {
 
-                                        _parser.Object[i, j].Object.Move(_parser.Object[i, j].EastField, _parser.Object[i, j], false);
+                                        _board[i, j].Object.Move(_board[i, j].EastField, _board[i, j], false);
                                         MoveSleeper();
                                         Console.Clear();
-                                        _parser.PrintObjects();
+                                        gameView.Board = this._board;
+                                        gameView.PrintObjects();
                                         return;
                                     }
-                                    else if (_parser.Object[i, j].EastField.Symbol == 'o' || _parser.Object[i, j].EastField.Symbol == '0')
+                                    else if (_board[i, j].EastField.Symbol == 'o' || _board[i, j].EastField.Symbol == '0')
                                     {
 
-                                        _parser.Object[i, j].EastField.Object.Move(_parser.Object[i, j].EastField.EastField, _parser.Object[i, j].EastField, false);
-                                        _parser.Object[i, j].Object.Move(_parser.Object[i, j].EastField, _parser.Object[i, j], false);
+                                        _board[i, j].EastField.Object.Move(_board[i, j].EastField.EastField, _board[i, j].EastField, false);
+                                        _board[i, j].Object.Move(_board[i, j].EastField, _board[i, j], false);
                                         MoveSleeper();
                                         Console.Clear();
-                                        _parser.PrintObjects();
+                                        gameView.Board = this._board;
+                                        gameView.PrintObjects();
                                         return;
                                     }
                                     return;
                                 case ConsoleKey.UpArrow:
-                                    if (_parser.Object[i, j].NorthField.Symbol != '#' && _parser.Object[i, j].NorthField.Symbol != 'o' && _parser.Object[i, j].NorthField.Symbol != '0')
+                                    if (_board[i, j].NorthField.Symbol != '#' && _board[i, j].NorthField.Symbol != 'o' && _board[i, j].NorthField.Symbol != '0')
                                     {
-                                        _parser.Object[i, j].Object.Move(_parser.Object[i, j].NorthField, _parser.Object[i, j], false);
+                                        _board[i, j].Object.Move(_board[i, j].NorthField, _board[i, j], false);
                                         MoveSleeper();
                                         Console.Clear();
-                                        _parser.PrintObjects();
+                                        gameView.Board = this._board;
+                                        gameView.PrintObjects();
                                         return;
                                     }
-                                    else if (_parser.Object[i, j].NorthField.Symbol == 'o' || _parser.Object[i, j].NorthField.Symbol == '0')
+                                    else if (_board[i, j].NorthField.Symbol == 'o' || _board[i, j].NorthField.Symbol == '0')
                                     {
 
-                                        _parser.Object[i, j].NorthField.Object.Move(_parser.Object[i, j].NorthField.NorthField, _parser.Object[i, j].NorthField, false);
-                                        _parser.Object[i, j].Object.Move(_parser.Object[i, j].NorthField, _parser.Object[i, j], false);
+                                        _board[i, j].NorthField.Object.Move(_board[i, j].NorthField.NorthField, _board[i, j].NorthField, false);
+                                        _board[i, j].Object.Move(_board[i, j].NorthField, _board[i, j], false);
                                         MoveSleeper();
                                         Console.Clear();
-                                        _parser.PrintObjects();
+                                        gameView.Board = this._board;
+                                        gameView.PrintObjects();
                                         return;
 
                                     }
                                     return;
                                 case ConsoleKey.DownArrow:
-                                    if (_parser.Object[i, j].SouthField.Symbol != '#' && _parser.Object[i, j].SouthField.Symbol != 'o' && _parser.Object[i, j].SouthField.Symbol != '0')
+                                    if (_board[i, j].SouthField.Symbol != '#' && _board[i, j].SouthField.Symbol != 'o' && _board[i, j].SouthField.Symbol != '0')
                                     {
-                                        _parser.Object[i, j].Object.Move(_parser.Object[i, j].SouthField, _parser.Object[i, j], false);
+                                        _board[i, j].Object.Move(_board[i, j].SouthField, _board[i, j], false);
                                         MoveSleeper();
                                         Console.Clear();
-                                        _parser.PrintObjects();
+                                        gameView.Board = this._board;
+                                        gameView.PrintObjects();
                                         return;
                                     }
-                                    else if (_parser.Object[i, j].SouthField.Symbol == 'o' || _parser.Object[i, j].SouthField.Symbol == '0')
+                                    else if (_board[i, j].SouthField.Symbol == 'o' || _board[i, j].SouthField.Symbol == '0')
                                     {
-                                        _parser.Object[i, j].SouthField.Object.Move(_parser.Object[i, j].SouthField.SouthField, _parser.Object[i, j].SouthField, false);
-                                        _parser.Object[i, j].Object.Move(_parser.Object[i, j].SouthField, _parser.Object[i, j], false);
+                                        _board[i, j].SouthField.Object.Move(_board[i, j].SouthField.SouthField, _board[i, j].SouthField, false);
+                                        _board[i, j].Object.Move(_board[i, j].SouthField, _board[i, j], false);
                                         MoveSleeper();
                                         Console.Clear();
-                                        _parser.PrintObjects();
+                                        gameView.Board = this._board;
+                                        gameView.PrintObjects();
                                         return;
                                     }
                                     return;
                                 case ConsoleKey.S:
                                     Console.Clear();
+                                    _parser = new Parser(this);
                                     _inputView.ShowMenu();
                                     keyInputEvent();
                                     return;
                                 case ConsoleKey.R:
                                     Console.Clear();
+                                    _parser = new Parser(this);
                                     _parser.ParseLevel(level);
                                     return;
                             }
@@ -210,13 +247,13 @@ namespace ConsoleApp4
 
         public void MoveSleeper()
         {
-            for (int i = 0; i < _parser.NumberOfRows; i++)
+            for (int i = 0; i < numOfRows; i++)
             {
-                for (int j = 0; j < _parser.LengthOfRows; j++)
+                for (int j = 0; j < lengthOfRows; j++)
                 {
-                    if (_parser.Object[i, j].Symbol == '$' || _parser.Object[i, j].Symbol == 'z'  )
+                    if (_board[i, j].Symbol == '$' || _board[i, j].Symbol == 'z'  )
                     {
-                        _parser.Object[i, j].Object.Move(_parser.Object[i, j], _parser.Object[i, j], false);
+                        _board[i, j].Object.Move(_board[i, j], _board[i, j], false);
                         return;
                     }
                 }
@@ -225,11 +262,11 @@ namespace ConsoleApp4
         public bool CheckWin()
         {
             int barrelsOnDest = 0;
-            for (int i = 0; i < _parser.NumberOfRows; i++)
+            for (int i = 0; i < numOfRows; i++)
             {
-                for (int j = 0; j < _parser.LengthOfRows; j++)
+                for (int j = 0; j < lengthOfRows; j++)
                 {
-                    if (_parser.Object[i, j].Symbol == '0')
+                    if (_board[i, j].Symbol == '0')
                     {
                         barrelsOnDest++;
                     }

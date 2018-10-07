@@ -2,7 +2,7 @@
 {
     class BrokenFloor : StaticObject
     {
-        private MovableObject _object;
+       
         int numberOfObjects;
         public override MovableObject Object
         {

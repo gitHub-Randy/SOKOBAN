@@ -48,7 +48,7 @@ namespace ConsoleApp4
             ReadTextFile();
             MakeObjects();
             LinkObjects();
-            PrintObjects();
+            
 
             
         }
@@ -78,36 +78,36 @@ namespace ConsoleApp4
                     switch (character)
                     {
                         case '#':
-                            //MakeWall();
+                            //MakeWall
                             Object[i, j] = new Muur();
                             Object[i, j].setDefaultSymbol();
                             break;
                         case '.':
-                            //MakeFloor();
-                            Object[i, j] = new Vloer('.', false, false);
+                            //MakeFloor
+                            Object[i, j] = new Vloer();
                             Object[i, j].setDefaultSymbol();
                             break;
                         case '@':
-                            //MakeTruck();
-                            Object[i, j] = new Vloer('@', true, false);
+                            //MakeTruck
+                            Object[i, j] = new Vloer();
                             Object[i, j].Object = new MagazijnMedewerker();
                             Object[i, j].setDefaultSymbol();
                             break;
                         case 'o':
-                            //MakeBox();
-                            Object[i, j] = new Vloer('o', false, true);
+                            //MakeBox
+                            Object[i, j] = new Vloer();
                             Object[i, j].Object = new Kist();
                             Object[i, j].setDefaultSymbol();
                             numOfKist++;
                             break;
                         case 'x':
-                            //MakeDestination();
+                            //MakeDestination
                             Object[i, j] = new Destination();
                             Object[i, j].setDefaultSymbol();
                             
                             break;
                         case ' ':
-                            //MakeEmptySpace();
+                            //MakeEmptySpace
                             Object[i, j] = new EmptySpace();
                             Object[i, j].setDefaultSymbol();
                             break;
@@ -117,8 +117,8 @@ namespace ConsoleApp4
                             Object[i, j].setDefaultSymbol();
                             break;
                         case '$':
-                            //MakeBrokenIsle
-                            Object[i, j] = new Vloer('.',false,false);
+                            //MakeSleeper
+                            Object[i, j] = new Vloer();
                             Object[i, j].Object = new Sleeper();
                             Object[i, j].setDefaultSymbol();
                             break;
@@ -159,17 +159,7 @@ namespace ConsoleApp4
             }
         }
 
-        public void PrintObjects()
-        {
-            for (int i = 0; i < numberOfRows; i++)
-            {
-                for (int j = 0; j < lengthOfRows; j++)
-                {
-                    Console.Write(Object[i, j].Symbol);
-                }
-                Console.WriteLine();
-            }
-        }
+        
 
     }
 

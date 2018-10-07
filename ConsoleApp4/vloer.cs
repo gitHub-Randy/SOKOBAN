@@ -6,11 +6,7 @@ namespace ConsoleApp4
     {
 
         
-        public Vloer(char c, bool hasTruck, bool hasKist)
-        {
-
-        }
-
+      
 
         public override void setDefaultSymbol()
         {
@@ -24,23 +20,7 @@ namespace ConsoleApp4
             }
         }
 
-        public bool hasTruck
-        {
-            get => default(bool);
-            set
-            {
-            }
-
-
-        }
-        public bool hasKist
-        {
-            get => default(bool);
-            set
-            {
-            }
-        }
-
+      
         public override MovableObject Object
         {
             get { return this._object; }

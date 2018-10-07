@@ -18,14 +18,6 @@ namespace ConsoleApp4
             }
         }
 
-        public int Position
-        {
-            get => default(int);
-            set
-            {
-            }
-        }
-
         public  abstract bool Move(StaticObject destiantion, StaticObject current,bool WakeUP);
         
     }

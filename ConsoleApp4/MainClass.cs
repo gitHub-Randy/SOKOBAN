@@ -8,11 +8,11 @@ namespace ConsoleApp4
 {
     public class MainClass
     {
-        
+        static Controller _control;
 
         static void Main(string[] args)
         {
-            Controller _control = new Controller();
+          _control = new Controller();
 
         }
     }
