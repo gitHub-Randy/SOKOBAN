@@ -105,12 +105,7 @@ namespace ConsoleApp4
             {
 
                 _board[i, j].Object.Move(_board[i, j].WestField, _board[i, j], false);
-                MoveSleeper();
-                Console.Clear();
-                gameView.Board = this._board;
-                gameView.PrintObjects();
-
-                return;
+                FinishTurn();
             }
             else if (_board[i, j].WestField.Symbol == 'o' || _board[i, j].WestField.Symbol == '0')
             {
@@ -118,11 +113,7 @@ namespace ConsoleApp4
 
                 _board[i, j].WestField.Object.Move(_board[i, j].WestField.WestField, _board[i, j].WestField, false);
                 _board[i, j].Object.Move(_board[i, j].WestField, _board[i, j], false);
-                MoveSleeper();
-                Console.Clear();
-                gameView.Board = this._board;
-                gameView.PrintObjects();
-                return;
+                FinishTurn();
 
             }
 
@@ -135,22 +126,14 @@ namespace ConsoleApp4
             {
 
                 _board[i, j].Object.Move(_board[i, j].EastField, _board[i, j], false);
-                MoveSleeper();
-                Console.Clear();
-                gameView.Board = this._board;
-                gameView.PrintObjects();
-                return;
+                FinishTurn();
             }
             else if (_board[i, j].EastField.Symbol == 'o' || _board[i, j].EastField.Symbol == '0')
             {
 
                 _board[i, j].EastField.Object.Move(_board[i, j].EastField.EastField, _board[i, j].EastField, false);
                 _board[i, j].Object.Move(_board[i, j].EastField, _board[i, j], false);
-                MoveSleeper();
-                Console.Clear();
-                gameView.Board = this._board;
-                gameView.PrintObjects();
-                return;
+                FinishTurn();
             }
 
 
@@ -161,22 +144,14 @@ namespace ConsoleApp4
             if (_board[i, j].NorthField.Symbol != '#' && _board[i, j].NorthField.Symbol != 'o' && _board[i, j].NorthField.Symbol != '0')
             {
                 _board[i, j].Object.Move(_board[i, j].NorthField, _board[i, j], false);
-                MoveSleeper();
-                Console.Clear();
-                gameView.Board = this._board;
-                gameView.PrintObjects();
-                return;
+                FinishTurn();
             }
             else if (_board[i, j].NorthField.Symbol == 'o' || _board[i, j].NorthField.Symbol == '0')
             {
 
                 _board[i, j].NorthField.Object.Move(_board[i, j].NorthField.NorthField, _board[i, j].NorthField, false);
                 _board[i, j].Object.Move(_board[i, j].NorthField, _board[i, j], false);
-                MoveSleeper();
-                Console.Clear();
-                gameView.Board = this._board;
-                gameView.PrintObjects();
-                return;
+                FinishTurn();
 
             }
 
@@ -187,22 +162,22 @@ namespace ConsoleApp4
             if (_board[i, j].SouthField.Symbol != '#' && _board[i, j].SouthField.Symbol != 'o' && _board[i, j].SouthField.Symbol != '0')
             {
                 _board[i, j].Object.Move(_board[i, j].SouthField, _board[i, j], false);
-                MoveSleeper();
-                Console.Clear();
-                gameView.Board = this._board;
-                gameView.PrintObjects();
-                return;
+                FinishTurn();
             }
             else if (_board[i, j].SouthField.Symbol == 'o' || _board[i, j].SouthField.Symbol == '0')
             {
                 _board[i, j].SouthField.Object.Move(_board[i, j].SouthField.SouthField, _board[i, j].SouthField, false);
                 _board[i, j].Object.Move(_board[i, j].SouthField, _board[i, j], false);
-                MoveSleeper();
-                Console.Clear();
-                gameView.Board = this._board;
-                gameView.PrintObjects();
-                return;
+                FinishTurn();
             }
+        }
+
+        public void FinishTurn()
+        {
+            MoveSleeper();
+            Console.Clear();
+            gameView.Board = this._board;
+            gameView.PrintObjects();
         }
 
         private void KeyInputEventGame()
